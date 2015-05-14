@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *networkActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @end
 
 @implementation ViewController
@@ -47,11 +49,16 @@
 
     [self.webView reload];
 }
+- (IBAction)onNewFeatureButtonPressed:(UIButton *)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"new ways to waste your time!" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
+}
 
 #pragma mark -TextFieldDelegate Methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-
+    if (![self.urlTextField.text hasPrefix:@"http://"] && ![self.urlTextField.text hasPrefix:@"https://"]) {
+        self.urlTextField.text = [@"http://" stringByAppendingString:self.urlTextField.text];
+    }
     [self loadWebRequestWithText:self.urlTextField.text];
     return TRUE;
 }
@@ -68,6 +75,19 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     [self.networkActivityIndicator startAnimating];
     self.networkActivityIndicator.hidden = false;
+
+    if ([self.webView canGoBack]) {
+        self.backButton.enabled = true;
+    } else {
+        self.backButton.enabled = false;
+    }
+
+    if ([self.webView canGoForward]) {
+        self.forwardButton.enabled = true;
+    } else {
+        self.forwardButton.enabled = false;
+    }
+
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {

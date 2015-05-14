@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -60,7 +60,7 @@
                                             <constraint firstAttribute="height" constant="30" id="2AU-Rl-vDP"/>
                                             <constraint firstAttribute="width" constant="30" id="EWt-dM-Mqy"/>
                                         </constraints>
-                                        <state key="normal" title=">">
+                                        <state key="normal" title="&gt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -93,12 +93,23 @@
                                             <action selector="onReloadButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CFr-wj-GJM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEJ-hy-YIS">
+                                        <rect key="frame" x="285" y="9" width="30" height="30"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onNewFeatureButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="l4G-he-gdK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="be9-9B-bJ6" secondAttribute="bottom" constant="9" id="9vs-sr-Va2"/>
                                     <constraint firstAttribute="bottom" secondItem="6An-Lf-Xzw" secondAttribute="bottom" constant="8" id="Chr-AD-Y12"/>
                                     <constraint firstItem="FOK-AL-JLA" firstAttribute="leading" secondItem="imm-n7-yWF" secondAttribute="trailing" constant="8" id="Enn-96-7TT"/>
+                                    <constraint firstAttribute="bottom" secondItem="QEJ-hy-YIS" secondAttribute="bottom" constant="8" id="K0o-P3-0ib"/>
+                                    <constraint firstAttribute="centerX" secondItem="QEJ-hy-YIS" secondAttribute="centerX" id="QqJ-1w-YvU"/>
                                     <constraint firstItem="be9-9B-bJ6" firstAttribute="leading" secondItem="6An-Lf-Xzw" secondAttribute="trailing" constant="8" id="SJ4-6t-97d"/>
                                     <constraint firstAttribute="bottom" secondItem="imm-n7-yWF" secondAttribute="bottom" constant="8" id="ZKB-Rl-NDl"/>
                                     <constraint firstAttribute="bottom" secondItem="FOK-AL-JLA" secondAttribute="bottom" constant="8" id="ZrL-2B-ep4"/>
@@ -125,6 +136,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="imm-n7-yWF" id="UBS-n8-tV9"/>
+                        <outlet property="forwardButton" destination="FOK-AL-JLA" id="cLo-tM-zgx"/>
                         <outlet property="networkActivityIndicator" destination="APd-8P-S4I" id="zRP-Xv-Dcz"/>
                         <outlet property="urlTextField" destination="SZg-OH-YCZ" id="6QA-tD-Ete"/>
                         <outlet property="webView" destination="GLZ-g2-JGV" id="0qi-2j-WbQ"/>
