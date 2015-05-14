@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
+@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+
+@property float lastContentOffset;
+
 @end
 
 @implementation ViewController
@@ -23,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.networkActivityIndicator.hidden = true;
+    self.webView.scrollView.delegate = self;
+
+    self.lastContentOffset = self.webView.scrollView.contentOffset.y;
 
 }
 
@@ -51,6 +57,8 @@
 }
 - (IBAction)onNewFeatureButtonPressed:(UIButton *)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Coming Soon" message:@"new ways to waste your time!" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:nil, nil];
+
+    [alertView show];
 }
 
 #pragma mark -TextFieldDelegate Methods
@@ -61,6 +69,7 @@
     }
     [self loadWebRequestWithText:self.urlTextField.text];
     return TRUE;
+
 }
 
 
@@ -94,5 +103,23 @@
     [self.networkActivityIndicator stopAnimating];
     self.networkActivityIndicator.hidden = true;
 }
+
+
+#pragma mark -ScrollViewDelegate Methods
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.lastContentOffset < self.webView.scrollView.contentOffset.y) {
+        self.urlTextField.hidden = true;
+    }
+    else {
+        self.urlTextField.hidden = false;
+    }
+
+    self.lastContentOffset = self.webView.scrollView.contentOffset.y;
+
+
+}
+
 
 @end
