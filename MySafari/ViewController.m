@@ -24,6 +24,32 @@
 
 }
 
+
+- (IBAction)onBackButtonPressed:(UIButton *)sender {
+
+
+    [self.webView goBack];
+
+}
+
+- (IBAction)onForwardButtonPressed:(UIButton *)sender {
+
+    [self.webView goForward];
+}
+
+
+- (IBAction)onStopLoadingButtonPressed:(UIButton *)sender {
+
+    [self.webView stopLoading];
+}
+
+- (IBAction)onReloadButtonPressed:(UIButton *)sender {
+
+    [self.webView reload];
+}
+
+#pragma mark -TextFieldDelegate Methods
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 
     [self loadWebRequestWithText:self.urlTextField.text];
