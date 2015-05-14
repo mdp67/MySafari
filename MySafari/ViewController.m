@@ -9,15 +9,16 @@
 #import "ViewController.h"
 
 @interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalTextFieldConstraint;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *networkActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
-
 @property float lastContentOffset;
+@property float originalTopConstraintConstant;
+@property float newTopConstraintConstant;
 
 @end
 
@@ -27,8 +28,12 @@
     [super viewDidLoad];
     self.networkActivityIndicator.hidden = true;
     self.webView.scrollView.delegate = self;
-
     self.lastContentOffset = self.webView.scrollView.contentOffset.y;
+    self.urlTextField.opaque = NO;
+    self.originalTopConstraintConstant = self.verticalTextFieldConstraint.constant;
+
+    float heightOfTextView = self.urlTextField.frame.size.height;
+    self.newTopConstraintConstant = self.originalTopConstraintConstant - (heightOfTextView + 5);
 
 }
 
@@ -102,6 +107,7 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.networkActivityIndicator stopAnimating];
     self.networkActivityIndicator.hidden = true;
+    self.urlTextField.text = self.webView.request.URL.absoluteString;
 }
 
 
@@ -109,15 +115,17 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+
     if (self.lastContentOffset < self.webView.scrollView.contentOffset.y) {
-        self.urlTextField.hidden = true;
+        self.urlTextField.alpha = 0.0;
+        self.verticalTextFieldConstraint.constant = self.newTopConstraintConstant;
     }
     else {
-        self.urlTextField.hidden = false;
+        self.urlTextField.alpha = 1.0;
+        self.verticalTextFieldConstraint.constant = self.originalTopConstraintConstant;
     }
-
     self.lastContentOffset = self.webView.scrollView.contentOffset.y;
-
+    
 
 }
 

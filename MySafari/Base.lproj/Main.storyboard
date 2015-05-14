@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,17 +24,6 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="wXC-eI-Ja8"/>
                                 </connections>
                             </webView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SZg-OH-YCZ">
-                                <rect key="frame" x="16" y="21" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IjD-qR-2Pe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="go"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="mrW-ub-wbi"/>
-                                </connections>
-                            </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="APd-8P-S4I">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
@@ -60,7 +49,7 @@
                                             <constraint firstAttribute="height" constant="30" id="2AU-Rl-vDP"/>
                                             <constraint firstAttribute="width" constant="30" id="EWt-dM-Mqy"/>
                                         </constraints>
-                                        <state key="normal" title=">">
+                                        <state key="normal" title="&gt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -117,29 +106,42 @@
                                     <constraint firstAttribute="trailing" secondItem="be9-9B-bJ6" secondAttribute="trailing" constant="8" id="yjO-lB-6RE"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SZg-OH-YCZ">
+                                <rect key="frame" x="16" y="21" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5Hq-xy-MIF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="mrW-ub-wbi"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="1" id="5kN-2p-Hxz"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="GLZ-g2-JGV" secondAttribute="bottom" constant="47" id="6wy-UK-aRp"/>
-                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="1" id="8SG-8h-BCv"/>
+                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="7ot-T8-K9Y"/>
+                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Ejh-Ez-yFS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GLZ-g2-JGV" secondAttribute="trailing" constant="-16" id="Ik6-QI-oHd"/>
                             <constraint firstAttribute="centerX" secondItem="APd-8P-S4I" secondAttribute="centerX" id="Nv5-lz-IQh"/>
-                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Sco-eK-uQE"/>
                             <constraint firstItem="zPV-4X-W4r" firstAttribute="top" secondItem="GLZ-g2-JGV" secondAttribute="bottom" id="We3-Ef-K11"/>
-                            <constraint firstItem="GLZ-g2-JGV" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="59" id="Wzu-WI-7XZ"/>
-                            <constraint firstItem="SZg-OH-YCZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="d40-DQ-pjx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zPV-4X-W4r" secondAttribute="trailing" constant="-16" id="ezT-u4-pH0"/>
+                            <constraint firstItem="GLZ-g2-JGV" firstAttribute="top" secondItem="SZg-OH-YCZ" secondAttribute="bottom" constant="8" id="giN-c3-3er"/>
                             <constraint firstItem="GLZ-g2-JGV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="jpY-DL-CNU"/>
                             <constraint firstItem="zPV-4X-W4r" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="rvE-My-2FY"/>
                             <constraint firstAttribute="centerY" secondItem="APd-8P-S4I" secondAttribute="centerY" id="trJ-fV-HY7"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="zPV-4X-W4r" secondAttribute="bottom" id="vua-fv-a09"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="backButton" destination="imm-n7-yWF" id="UBS-n8-tV9"/>
                         <outlet property="forwardButton" destination="FOK-AL-JLA" id="cLo-tM-zgx"/>
                         <outlet property="networkActivityIndicator" destination="APd-8P-S4I" id="zRP-Xv-Dcz"/>
                         <outlet property="urlTextField" destination="SZg-OH-YCZ" id="6QA-tD-Ete"/>
+                        <outlet property="verticalTextFieldConstraint" destination="5kN-2p-Hxz" id="FjM-kw-z6a"/>
                         <outlet property="webView" destination="GLZ-g2-JGV" id="0qi-2j-WbQ"/>
                     </connections>
                 </viewController>
